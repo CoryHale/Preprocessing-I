@@ -54,6 +54,214 @@ table {
 }
 
 html, body {
-    height: 100%;
+	height: 100%;
+	font-size: 62.5%;
 }
 
+/* My Code Starts Here */
+
+// Variables & mixins
+
+@mobile: 500px;
+
+@link-padding: 10px 25px;
+
+@my-color: skyblue;
+@font-stack: 'Inconsolata', Arial, Helvetica, sans-serif;
+
+.hover-animation(@color, @text-color, @time) {
+	background: @color;
+	color: @text-color;
+	transition: @time;
+}
+
+.center {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+.container {
+	max-width: 800px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.resume-header {
+	
+	nav {
+		display: flex;
+		justify-content: space-around;
+		margin-top: 10px;
+
+		a {
+			text-decoration: none;
+			color: black;
+			padding: @link-padding;
+			font-size: 1.8rem;
+			font-family: @font-stack;
+
+			&:hover {
+				border-radius: 5px;
+				.hover-animation(crimson, white, 0.2s);
+			}
+		}
+	}
+}
+
+.intro-section {
+	margin-top: 30px;
+	height: 600px;
+	background: lightgray;
+	.center;
+	flex-direction: row-reverse;
+	border-radius: 10px;
+
+	img {
+		width: 45%;
+		border-radius: 10px;
+
+		@media(max-width: @mobile) {
+			display: none;
+		}
+	}
+
+	.intro {
+		width: 45%;
+		height: 400px;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+		font-family: @font-stack;
+
+		h1 {
+			font-size: 6.0rem;
+			margin-bottom: 75px;
+		}
+
+		p {
+			font-size: 3.0rem;
+			text-align: center;
+		}
+
+		@media(max-width: @mobile) {
+			text-align: center;
+		}
+	}
+}
+
+.main-section {
+	margin-top: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	font-family: @font-stack;
+
+	.about {
+		width: 47%;
+		border-right: 1px dashed black;
+		padding-right: 10px;
+
+		h2 {
+			margin-left: 70px;
+			font-size: 3.6rem;
+			margin-bottom: 20px;
+
+			@media(max-width: @mobile) {
+				margin-left: 0px;
+			}
+		}
+
+		p {
+			font-size: 2.4rem;
+		}
+
+		@media(max-width: @mobile) {
+			width: 97%;
+			border: 0px solid black;
+			padding-right: 0;
+			margin-bottom: 30px;
+		}
+	}
+
+	.skills {
+		width: 47%;
+
+		h2 {
+			margin-left: 140px;
+			font-size: 3.6rem;
+			margin-bottom: 20px;
+
+			@media(max-width: @mobile) {
+				margin-left: 0;
+			}
+		}
+
+		ul {
+			font-size: 2.4rem;
+			line-height: 1.3;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+
+			@media(max-width: @mobile) {
+				align-items: center;
+			}
+		}
+
+		@media(max-width: @mobile) {
+			width: 97%;
+			border-top: 1px dashed black;
+			padding-top: 30px;
+		}
+	}
+
+	@media(max-width: @mobile) {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+.work-history {
+	margin-top: 30px;
+	font-size: 2.0rem;
+	font-family: @font-stack;
+
+	table {
+		width: 100%;
+		border-spacing: 5px;
+	}
+
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+
+	th, td {
+		padding: 15px;
+	}
+
+	th {
+		text-align: left;
+		background: @my-color;
+	}
+}
+
+footer {
+	margin-top: 30px;
+	margin-bottom: 10px;
+	font-size: 1.8rem;
+	text-align: center;
+}
+
+.contact-card {
+	margin: 100px;
+	width: 500px;
+	height: 300px;
+	background: crimson;
+	color: white;
+	font-family: @font-stack;
+	font-size: 2.0rem;
+}
